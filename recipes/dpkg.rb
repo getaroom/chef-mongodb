@@ -3,7 +3,7 @@ remote_file File.join(Chef::Config['file_cache_path'], node['mongodb']['package_
   action :create_if_missing
 end
 
-dpkg_package File.join(Chef::Config[:file_cache_path], node['mongodb']['package_file'])
+dpkg_package File.join(Chef::Config['file_cache_path'], node['mongodb']['package_file'])
 
 needs_mongo_gem = (node.recipes.include?("mongodb::replicaset") or node.recipes.include?("mongodb::mongos"))
 
